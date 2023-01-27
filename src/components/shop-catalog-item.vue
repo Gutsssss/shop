@@ -5,10 +5,10 @@
       :src="require('../assets/images/' + product_data.image)"
     />
     <p class="shop-catalog-item__name">{{ product_data.name }}</p>
-    <p class="shop-catalog-item__price">Price:{{ product_data.price }}</p>
+    <p class="shop-catalog-item__price">Price:{{ product_data.price }} Р.</p>
     <button 
     class="shop-catalog-item__add_to_cart_btn btn" 
-    @click="sendId"
+    @click="addToCart"
     >Add to cart
     </button>
   </div>
@@ -25,9 +25,9 @@ export default {
     },
   },
   methods: {
-    sendId() {
-      this.$emit("sendId", this.product_data.id);
-    },
+    addToCart() {
+      this.$emit('addToCart', this.product_data);
+    }
   },
 };
 </script>
